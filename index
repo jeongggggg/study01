@@ -15,6 +15,9 @@
             <a href="02/requestAnimationFrame.html">loop, 자연스러운 움직임</a>
             <a href="02/transform_transition.html">transform, translate 값 변경</a>
             <a href="02/easing.html">transition, easing(가속도)</a>
+            <a href="/02/3d_text/fixnothing.html">픽스 낫띵 실습 사이트</a>
+            <a href="/02/width_scroll.html">가로 스크롤</a>
+            <a href="/02/vertical_scroll.html">세로 스크롤</a>
         </section>
     </div>
 </body>
