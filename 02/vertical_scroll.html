@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세로 스크롤</title>
+    <style>
+        body{
+            height: 10000px;
+            background: linear-gradient(150deg, red, orange, yellow, green, indigo, purple, black);
+        }
+
+        h1{
+            color: #fff;
+        }
+
+        .progress{
+            width: 4px;
+            height: 140px;
+            position: fixed;
+            top: 40%;
+            left: 10px;
+            background-color: #000;
+            z-index: 10;
+        }
+
+        .bar{
+            width: 4px;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: yellow;
+            z-index: 11;
+            transition: all 0.3s;
+        }
+    </style>
+    <script>
+        let scrollTop = 0;
+        let bar;
+
+        // 호출하기 전에 부른 거여서 이 친구만 따로 부름
+        window.onload = function(){
+            bar = document.getElementsByClassName("bar")[0];
+        }
+
+        window.addEventListener("scroll", function(){
+            scrollTop = document.documentElement.scrollTop;
+            let per = Math.ceil(scrollTop / (document.body.scrollHeight - window.outerHeight) * 100);
+
+            bar.style.height = per + "%"
+
+        },false)
+    </script>
+</head>
+<body>
+    <h1>스크롤</h1>
+    <div class="progress">
+        <span class="bar">
+
+        </span>
+    </div>
+</body>
+</html>
