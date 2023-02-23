@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform, translate 값 변경</title>
+    <style>
+        body,html {
+            background: #000;
+            position: relative;
+        }
+        h1 {
+            color: #fff;
+        }
+        .cursor_item {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: red;
+            top: 0;
+            left: 0;
+            margin: -50px 0 0 -50px;
+            transition: all .5s cubic-bezier(0.800, 0.000, 0.245, 1.000);
+        }
+
+        button{
+            font-size: 40px;
+            font-weight: bold;
+            background-color: #fff;
+            color: red;
+            padding: 30px 80px;
+            margin: 50px;
+            cursor: pointer;
+            transition: all .5s cubic-bezier(0.800, 0.000, 0.245, 1.000);
+        }
+
+        button:hover{
+            background-color: red;
+            color: #fff;
+            font-size: 80px;
+            padding: 80px 150px;
+        }
+    </style>
+    <script>
+        let cursor_item;
+        let h1;
+
+        let x = 0;
+        let y = 0;
+        let mx = 0;
+        let my = 0;
+        let speed = .05;
+
+        window.onload = function(){ 
+            // h1 = document.getElementsByTagName('h1')[0];
+            cursor_item = document.getElementsByClassName('cursor_item')[0];
+
+            window.addEventListener('click', mouseFunc, false);
+            
+            function mouseFunc(e){
+                x = e.clientX;
+                y = e.clientY;
+                cursor_item.style.transform = "translate(" + x + "px," + y + "px)"
+            }
+        }
+    </script>
+</head>
+<body>
+    <button type="button">START</button>
+    <div class="cursor_item"></div>
+</body>
+</html>
