@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>더미 컨텐츠 텍스트 스크롤</title>
+    <style>
+        body{
+            /* height: 10000px; */
+            overflow-x: hidden;
+            background: linear-gradient(150deg, red, orange, yellow, green, indigo, purple, black);
+        }
+
+        h1{
+            color: #333;
+        }
+
+        .progress{
+            width: 4px;
+            height: 140px;
+            position: fixed;
+            top: 40%;
+            left: 10px;
+            background-color: #000;
+            z-index: 10;
+        }
+
+        .bar{
+            width: 4px;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: yellow;
+            z-index: 11;
+            transition: all 0.3s;
+        }
+
+        section{
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 30px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        p{
+            color: #555;
+            font-size: 15px;
+        }
+
+       /* 구름 */
+       .cloudWrap {
+                position: fixed;
+            }
+
+            .cloudWrap.cloud2 {
+                position: fixed;
+                top: -200px;
+                left: 700px;
+                z-index : 1000;
+            }
+
+            .cloudWrap img {
+                position: absolute;
+                width: 400px;
+                top: 0;
+                left: 0;
+            }
+
+            /* 구름 각각 위치 잡아주기 */
+            .cloudWrap img:nth-child(1) {
+                top : -100px;
+                left : 500px;
+            }
+
+            .cloudWrap img:nth-child(2) {
+                top : 800px;
+                left : 0px;
+            }
+
+            .cloudWrap img:nth-child(3) {
+                top : 1800px;
+                left : 400px;
+            }
+
+            .cloudWrap img:nth-child(4) {
+                top : 3000px;
+                left : -100px;
+            }
+
+            .cloudWrap img:nth-child(5) {
+                top : 4200px;
+                left : 500px;
+            }
+
+            .cloudWrap img:nth-child(6) {
+                top : 5900px;
+                left : -140px;
+            }
+
+            .cloudWrap img:nth-child(7) {
+                top : 7000px;
+                left : 500px;
+            }
+
+            .cloudWrap img:nth-child(8) {
+                top : 8000px;
+                left : -190px;
+            }
+
+            .cloudWrap img:nth-child(9) {
+                top : 9500px;
+                left : 600px;
+            }
+
+    </style>
+    <script>
+        let scrollTop = 0;
+        let bar;
+        let cloudWrap;
+        let cloudWrap02;
+
+        // 호출하기 전에 부른 거여서 이 친구만 따로 부름
+        window.onload = function(){
+            bar = document.getElementsByClassName("bar")[0];
+            cloudWrap = document.getElementsByClassName("cloudWrap")[0];
+            cloudWrap02 = document.getElementsByClassName("cloudWrap02")[0];
+        }
+
+        window.addEventListener("scroll", function(){
+            scrollTop = document.documentElement.scrollTop;
+            let per = Math.ceil(scrollTop / (document.body.scrollHeight - window.outerHeight) * 100);
+
+            bar.style.height = per + "%"
+
+            cloudWrap.style.transform = "translate(0," + scrollTop / 30 + "px)"
+            cloudWrap02.style.transform = "translate(0," + scrollTop / 15 + "px)"
+
+        },false)
+    </script>
+</head>
+<body>
+    <h1>스크롤</h1>
+    <div class="progress">
+        <span class="bar"></span>
+    </div>
+    <div class="cloudWrap">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+    </div>
+    <div class="cloudWrap cloud2">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+        <img src="https://blog.kakaocdn.net/dn/ozG7U/btqGevF6AUW/6l2R7j68oiSxNBQVZ0dxn1/white-cloud-7.png?attach=1&knm=img.png" alt="구름">
+    </div>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat tempore quasi sunt voluptatibus, vitae qui asperiores iure optio doloremque, obcaecati, nam ipsam a quod amet soluta. Sed, laudantium sunt?
+            Debitis dolorem, suscipit in beatae amet laborum accusamus tempore explicabo exercitationem cum sed natus laudantium provident ducimus voluptatum numquam qui libero? Exercitationem eum incidunt debitis, suscipit magni modi animi facilis.
+            Officiis commodi, excepturi odit quaerat minus pariatur ratione ipsum! Vitae optio quam odit reprehenderit laborum! Similique minima repellendus laboriosam nostrum quasi, veritatis dignissimos porro maxime, impedit molestias quae iste cumque!
+            Voluptas, labore iure quasi dolorem quidem delectus eum eos accusamus aliquid, necessitatibus dolore velit exercitationem! Minima, illum consequatur iusto cumque esse, veritatis ducimus cum et cupiditate laudantium numquam praesentium error!
+            Earum quia praesentium fugit. Quas ex, beatae dicta officiis, esse cupiditate quae, accusamus id in nihil iste hic cumque! Hic eligendi deleniti eum enim! Asperiores quam pariatur sunt deserunt reprehenderit!
+            Dolore quibusdam mollitia laborum inventore commodi excepturi eum itaque aliquid eveniet odit alias error quia possimus adipisci in velit est corporis sed, iure enim corrupti consequuntur optio ipsa vitae. Quas!
+            Quidem harum reprehenderit eos ea ex velit iure enim distinctio eaque non odio voluptatum, dolor mollitia. Sapiente quibusdam nihil ut iste, quia aut. Quidem, omnis provident voluptatibus ab quo facere!
+            Totam hic dolore id, accusamus facilis aliquid voluptate pariatur laborum natus nihil porro. Tempore, dolor quibusdam! Hic quas reprehenderit eveniet officia amet quam numquam quis odio eum delectus, voluptatum impedit?
+            Qui sint rerum id deserunt modi vel sequi ipsum hic. Eveniet cumque impedit assumenda, tenetur minima, nemo facere excepturi vitae ipsa quisquam nulla officiis. Quisquam quis earum explicabo hic cupiditate.
+            Eveniet dolorum saepe ratione aliquid atque adipisci repellat, tempore ipsam iste possimus nostrum repellendus eligendi neque a nam. Deserunt quia pariatur velit officiis earum esse ducimus eos deleniti ipsa dolores.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat tempore quasi sunt voluptatibus, vitae qui asperiores iure optio doloremque, obcaecati, nam ipsam a quod amet soluta. Sed, laudantium sunt?
+            Debitis dolorem, suscipit in beatae amet laborum accusamus tempore explicabo exercitationem cum sed natus laudantium provident ducimus voluptatum numquam qui libero? Exercitationem eum incidunt debitis, suscipit magni modi animi facilis.
+            Officiis commodi, excepturi odit quaerat minus pariatur ratione ipsum! Vitae optio quam odit reprehenderit laborum! Similique minima repellendus laboriosam nostrum quasi, veritatis dignissimos porro maxime, impedit molestias quae iste cumque!
+            Voluptas, labore iure quasi dolorem quidem delectus eum eos accusamus aliquid, necessitatibus dolore velit exercitationem! Minima, illum consequatur iusto cumque esse, veritatis ducimus cum et cupiditate laudantium numquam praesentium error!
+            Earum quia praesentium fugit. Quas ex, beatae dicta officiis, esse cupiditate quae, accusamus id in nihil iste hic cumque! Hic eligendi deleniti eum enim! Asperiores quam pariatur sunt deserunt reprehenderit!
+            Dolore quibusdam mollitia laborum inventore commodi excepturi eum itaque aliquid eveniet odit alias error quia possimus adipisci in velit est corporis sed, iure enim corrupti consequuntur optio ipsa vitae. Quas!
+            Quidem harum reprehenderit eos ea ex velit iure enim distinctio eaque non odio voluptatum, dolor mollitia. Sapiente quibusdam nihil ut iste, quia aut. Quidem, omnis provident voluptatibus ab quo facere!
+            Totam hic dolore id, accusamus facilis aliquid voluptate pariatur laborum natus nihil porro. Tempore, dolor quibusdam! Hic quas reprehenderit eveniet officia amet quam numquam quis odio eum delectus, voluptatum impedit?
+            Qui sint rerum id deserunt modi vel sequi ipsum hic. Eveniet cumque impedit assumenda, tenetur minima, nemo facere excepturi vitae ipsa quisquam nulla officiis. Quisquam quis earum explicabo hic cupiditate.
+            Eveniet dolorum saepe ratione aliquid atque adipisci repellat, tempore ipsam iste possimus nostrum repellendus eligendi neque a nam. Deserunt quia pariatur velit officiis earum esse ducimus eos deleniti ipsa dolores.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat tempore quasi sunt voluptatibus, vitae qui asperiores iure optio doloremque, obcaecati, nam ipsam a quod amet soluta. Sed, laudantium sunt?
+            Debitis dolorem, suscipit in beatae amet laborum accusamus tempore explicabo exercitationem cum sed natus laudantium provident ducimus voluptatum numquam qui libero? Exercitationem eum incidunt debitis, suscipit magni modi animi facilis.
+            Officiis commodi, excepturi odit quaerat minus pariatur ratione ipsum! Vitae optio quam odit reprehenderit laborum! Similique minima repellendus laboriosam nostrum quasi, veritatis dignissimos porro maxime, impedit molestias quae iste cumque!
+            Voluptas, labore iure quasi dolorem quidem delectus eum eos accusamus aliquid, necessitatibus dolore velit exercitationem! Minima, illum consequatur iusto cumque esse, veritatis ducimus cum et cupiditate laudantium numquam praesentium error!
+            Earum quia praesentium fugit. Quas ex, beatae dicta officiis, esse cupiditate quae, accusamus id in nihil iste hic cumque! Hic eligendi deleniti eum enim! Asperiores quam pariatur sunt deserunt reprehenderit!
+            Dolore quibusdam mollitia laborum inventore commodi excepturi eum itaque aliquid eveniet odit alias error quia possimus adipisci in velit est corporis sed, iure enim corrupti consequuntur optio ipsa vitae. Quas!
+            Quidem harum reprehenderit eos ea ex velit iure enim distinctio eaque non odio voluptatum, dolor mollitia. Sapiente quibusdam nihil ut iste, quia aut. Quidem, omnis provident voluptatibus ab quo facere!
+            Totam hic dolore id, accusamus facilis aliquid voluptate pariatur laborum natus nihil porro. Tempore, dolor quibusdam! Hic quas reprehenderit eveniet officia amet quam numquam quis odio eum delectus, voluptatum impedit?
+            Qui sint rerum id deserunt modi vel sequi ipsum hic. Eveniet cumque impedit assumenda, tenetur minima, nemo facere excepturi vitae ipsa quisquam nulla officiis. Quisquam quis earum explicabo hic cupiditate.
+            Eveniet dolorum saepe ratione aliquid atque adipisci repellat, tempore ipsam iste possimus nostrum repellendus eligendi neque a nam. Deserunt quia pariatur velit officiis earum esse ducimus eos deleniti ipsa dolores.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat tempore quasi sunt voluptatibus, vitae qui asperiores iure optio doloremque, obcaecati, nam ipsam a quod amet soluta. Sed, laudantium sunt?
+            Debitis dolorem, suscipit in beatae amet laborum accusamus tempore explicabo exercitationem cum sed natus laudantium provident ducimus voluptatum numquam qui libero? Exercitationem eum incidunt debitis, suscipit magni modi animi facilis.
+            Officiis commodi, excepturi odit quaerat minus pariatur ratione ipsum! Vitae optio quam odit reprehenderit laborum! Similique minima repellendus laboriosam nostrum quasi, veritatis dignissimos porro maxime, impedit molestias quae iste cumque!
+            Voluptas, labore iure quasi dolorem quidem delectus eum eos accusamus aliquid, necessitatibus dolore velit exercitationem! Minima, illum consequatur iusto cumque esse, veritatis ducimus cum et cupiditate laudantium numquam praesentium error!
+            Earum quia praesentium fugit. Quas ex, beatae dicta officiis, esse cupiditate quae, accusamus id in nihil iste hic cumque! Hic eligendi deleniti eum enim! Asperiores quam pariatur sunt deserunt reprehenderit!
+            Dolore quibusdam mollitia laborum inventore commodi excepturi eum itaque aliquid eveniet odit alias error quia possimus adipisci in velit est corporis sed, iure enim corrupti consequuntur optio ipsa vitae. Quas!
+            Quidem harum reprehenderit eos ea ex velit iure enim distinctio eaque non odio voluptatum, dolor mollitia. Sapiente quibusdam nihil ut iste, quia aut. Quidem, omnis provident voluptatibus ab quo facere!
+            Totam hic dolore id, accusamus facilis aliquid voluptate pariatur laborum natus nihil porro. Tempore, dolor quibusdam! Hic quas reprehenderit eveniet officia amet quam numquam quis odio eum delectus, voluptatum impedit?
+            Qui sint rerum id deserunt modi vel sequi ipsum hic. Eveniet cumque impedit assumenda, tenetur minima, nemo facere excepturi vitae ipsa quisquam nulla officiis. Quisquam quis earum explicabo hic cupiditate.
+            Eveniet dolorum saepe ratione aliquid atque adipisci repellat, tempore ipsam iste possimus nostrum repellendus eligendi neque a nam. Deserunt quia pariatur velit officiis earum esse ducimus eos deleniti ipsa dolores.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat tempore quasi sunt voluptatibus, vitae qui asperiores iure optio doloremque, obcaecati, nam ipsam a quod amet soluta. Sed, laudantium sunt?
+            Debitis dolorem, suscipit in beatae amet laborum accusamus tempore explicabo exercitationem cum sed natus laudantium provident ducimus voluptatum numquam qui libero? Exercitationem eum incidunt debitis, suscipit magni modi animi facilis.
+            Officiis commodi, excepturi odit quaerat minus pariatur ratione ipsum! Vitae optio quam odit reprehenderit laborum! Similique minima repellendus laboriosam nostrum quasi, veritatis dignissimos porro maxime, impedit molestias quae iste cumque!
+            Voluptas, labore iure quasi dolorem quidem delectus eum eos accusamus aliquid, necessitatibus dolore velit exercitationem! Minima, illum consequatur iusto cumque esse, veritatis ducimus cum et cupiditate laudantium numquam praesentium error!
+            Earum quia praesentium fugit. Quas ex, beatae dicta officiis, esse cupiditate quae, accusamus id in nihil iste hic cumque! Hic eligendi deleniti eum enim! Asperiores quam pariatur sunt deserunt reprehenderit!
+            Dolore quibusdam mollitia laborum inventore commodi excepturi eum itaque aliquid eveniet odit alias error quia possimus adipisci in velit est corporis sed, iure enim corrupti consequuntur optio ipsa vitae. Quas!
+            Quidem harum reprehenderit eos ea ex velit iure enim distinctio eaque non odio voluptatum, dolor mollitia. Sapiente quibusdam nihil ut iste, quia aut. Quidem, omnis provident voluptatibus ab quo facere!
+            Totam hic dolore id, accusamus facilis aliquid voluptate pariatur laborum natus nihil porro. Tempore, dolor quibusdam! Hic quas reprehenderit eveniet officia amet quam numquam quis odio eum delectus, voluptatum impedit?
+            Qui sint rerum id deserunt modi vel sequi ipsum hic. Eveniet cumque impedit assumenda, tenetur minima, nemo facere excepturi vitae ipsa quisquam nulla officiis. Quisquam quis earum explicabo hic cupiditate.
+            Eveniet dolorum saepe ratione aliquid atque adipisci repellat, tempore ipsam iste possimus nostrum repellendus eligendi neque a nam. Deserunt quia pariatur velit officiis earum esse ducimus eos deleniti ipsa dolores.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident placeat tempore quasi sunt voluptatibus, vitae qui asperiores iure optio doloremque, obcaecati, nam ipsam a quod amet soluta. Sed, laudantium sunt?
+            Debitis dolorem, suscipit in beatae amet laborum accusamus tempore explicabo exercitationem cum sed natus laudantium provident ducimus voluptatum numquam qui libero? Exercitationem eum incidunt debitis, suscipit magni modi animi facilis.
+            Officiis commodi, excepturi odit quaerat minus pariatur ratione ipsum! Vitae optio quam odit reprehenderit laborum! Similique minima repellendus laboriosam nostrum quasi, veritatis dignissimos porro maxime, impedit molestias quae iste cumque!
+            Voluptas, labore iure quasi dolorem quidem delectus eum eos accusamus aliquid, necessitatibus dolore velit exercitationem! Minima, illum consequatur iusto cumque esse, veritatis ducimus cum et cupiditate laudantium numquam praesentium error!
+            Earum quia praesentium fugit. Quas ex, beatae dicta officiis, esse cupiditate quae, accusamus id in nihil iste hic cumque! Hic eligendi deleniti eum enim! Asperiores quam pariatur sunt deserunt reprehenderit!
+            Dolore quibusdam mollitia laborum inventore commodi excepturi eum itaque aliquid eveniet odit alias error quia possimus adipisci in velit est corporis sed, iure enim corrupti consequuntur optio ipsa vitae. Quas!
+            Quidem harum reprehenderit eos ea ex velit iure enim distinctio eaque non odio voluptatum, dolor mollitia. Sapiente quibusdam nihil ut iste, quia aut. Quidem, omnis provident voluptatibus ab quo facere!
+            Totam hic dolore id, accusamus facilis aliquid voluptate pariatur laborum natus nihil porro. Tempore, dolor quibusdam! Hic quas reprehenderit eveniet officia amet quam numquam quis odio eum delectus, voluptatum impedit?
+            Qui sint rerum id deserunt modi vel sequi ipsum hic. Eveniet cumque impedit assumenda, tenetur minima, nemo facere excepturi vitae ipsa quisquam nulla officiis. Quisquam quis earum explicabo hic cupiditate.
+            Eveniet dolorum saepe ratione aliquid atque adipisci repellat, tempore ipsam iste possimus nostrum repellendus eligendi neque a nam. Deserunt quia pariatur velit officiis earum esse ducimus eos deleniti ipsa dolores.
+        </p>
+    </section>
+</body>
+</html>
